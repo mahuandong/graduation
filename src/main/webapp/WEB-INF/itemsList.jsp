@@ -21,15 +21,13 @@
         <td>Date</td>
         <td>Detail</td>
     </tr>
-
-<c:forEach items="${itemsList}" var="item">
     <tr>
-        <td>${item.name}</td>
-        <td>${item.price}</td>
-        <td><fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
-        <td>${item.detail}</td>
+        <td>${items.name}</td>
+        <td>${items.price}</td>
+        <td><fmt:formatDate value="${items.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
+        <td>${items.detail}</td>
     </tr>
-</c:forEach>
+
 </table>
 </body>
 </html>

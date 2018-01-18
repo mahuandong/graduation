@@ -21,15 +21,12 @@
         <td>Date</td>
         <td>Address</td>
     </tr>
-
-<c:forEach items="${userList}" var="usre">
     <tr>
-        <td>${usre.username}</td>
-        <td>${usre.sex}</td>
+        <td>${user.username}</td>
+        <td>${user.sex}</td>
         <td></td>
-        <td>${usre.address}</td>
+        <td>${user.address}</td>
     </tr>
-</c:forEach>
 </table>
 </body>
 </html>
