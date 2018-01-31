@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.mapper.Happen.HappenMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.pojo.Happen" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="population" property="population" jdbcType="INTEGER" />
+    <result column="labor_force" property="laborForce" jdbcType="INTEGER" />
+    <result column="primary" property="primary" jdbcType="VARCHAR" />
+    <result column="second" property="second" jdbcType="VARCHAR" />
+    <result column="third" property="third" jdbcType="VARCHAR" />
+    <result column="year" property="year" javaType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, area_code, population, labor_force, primary, second, third, year
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap" >
+      select
+      *
+      from happen
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    *
+    from happen
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByYear" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+      select
+      *
+      from happen
+      where year = #{year,jdbcType=INTEGER}
+  </select>
+  <select id="selectByArea" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      select
+      *
+      from happen
+      where area_code = #{areaCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from happen
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.pojo.Happen" >
+    insert into happen (area_code, population, labor_force, 
+      `primary`, `second`, third ,year
+      )
+    values (#{areaCode,jdbcType=VARCHAR}, #{population,jdbcType=INTEGER}, #{laborForce,jdbcType=INTEGER}, 
+      #{primary,jdbcType=VARCHAR}, #{second,jdbcType=VARCHAR}, #{third,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.pojo.Happen" >
+    insert into happen
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+      <if test="population != null" >
+        population,
+      </if>
+      <if test="laborForce != null" >
+        labor_force,
+      </if>
+      <if test="primary != null" >
+        `primary`,
+      </if>
+      <if test="second != null" >
+        `second`,
+      </if>
+      <if test="third != null" >
+        third,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="population != null" >
+        #{population,jdbcType=INTEGER},
+      </if>
+      <if test="laborForce != null" >
+        #{laborForce,jdbcType=INTEGER},
+      </if>
+      <if test="primary != null" >
+        #{primary,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null" >
+        #{second,jdbcType=VARCHAR},
+      </if>
+      <if test="third != null" >
+        #{third,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.pojo.Happen" >
+    update happen
+    <set >
+      <if test="population != null" >
+        population = #{population,jdbcType=INTEGER},
+      </if>
+      <if test="laborForce != null" >
+        labor_force = #{laborForce,jdbcType=INTEGER},
+      </if>
+      <if test="primary != null" >
+        `primary` = #{primary,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null" >
+        `second` = #{second,jdbcType=VARCHAR},
+      </if>
+      <if test="third != null" >
+        third = #{third,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where area_code = #{areaCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.pojo.Happen" >
+    update happen
+    set population = #{population,jdbcType=INTEGER},
+      labor_force = #{laborForce,jdbcType=INTEGER},
+      `primary` = #{primary,jdbcType=VARCHAR},
+      `second` = #{second,jdbcType=VARCHAR},
+      third = #{third,jdbcType=VARCHAR},
+      year = #{year,jdbcType=INTEGER}
+    where area_code = #{areaCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

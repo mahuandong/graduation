@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>SpringMVC</groupId>
-  <artifactId>SpringMVC</artifactId>
+  <groupId>graduation</groupId>
+  <artifactId>graduation</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>test Maven Webapp</name>
@@ -19,13 +19,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <!-- 表示开发的时候引入，发布的时候不会加载此包 -->
-      <scope>test</scope>
-    </dependency>
     <!-- MySql 5.5 Connector -->
     <dependency>
       <groupId>mysql</groupId>
@@ -178,7 +171,7 @@
 
   </dependencies>
   <build>
-    <finalName>SpringMVC</finalName>
+    <finalName>graduation</finalName>
     <!--打包时包含xml文件-->
     <resources>
       <resource>

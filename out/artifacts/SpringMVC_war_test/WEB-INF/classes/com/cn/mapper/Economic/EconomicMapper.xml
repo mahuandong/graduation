@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.mapper.Economic.EconomicMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.pojo.Economic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="gdp" property="gdp" jdbcType="INTEGER" />
+    <result column="primary" property="primary" jdbcType="VARCHAR" />
+    <result column="second" property="second" jdbcType="VARCHAR" />
+    <result column="third" property="third" jdbcType="VARCHAR" />
+    <result column="tax _revenue" property="taxRevenue" jdbcType="VARCHAR" />
+    <result column="disposable _income" property="disposableIncome" jdbcType="VARCHAR" />
+    <result column="gdp_rate" property="gdpRate" jdbcType="DOUBLE" />
+    <result column="primary_rate" property="primaryRate" jdbcType="DOUBLE" />
+    <result column="second_rate" property="secondRate" jdbcType="DOUBLE" />
+    <result column="third_rate" property="thirdRate" jdbcType="DOUBLE" />
+    <result column="tax_rate" property="taxRate" jdbcType="DOUBLE" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, area_code, gdp, primary, second, third, "tax _revenue", "disposable _income", gdp_rate,
+    primary_rate, second_rate, third_rate, tax_rate, year
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap"  >
+    select
+    *
+    from economic
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    *
+    from economic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByYear" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    *
+    from economic
+    where year = #{year,jdbcType=INTEGER}
+  </select>
+  <select id="selectByArea" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+   *
+    from economic
+    where area_code = #{areaCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from economic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.pojo.Economic" >
+    insert into economic (area_code, gdp, primary, 
+      second, third, "tax _revenue", 
+      "disposable _income", gdp_rate, primary_rate, 
+      second_rate, third_rate, tax_rate, 
+      year)
+    values (#{areaCode,jdbcType=VARCHAR}, #{gdp,jdbcType=INTEGER}, #{primary,jdbcType=VARCHAR}, 
+      #{second,jdbcType=VARCHAR}, #{third,jdbcType=VARCHAR}, #{taxRevenue,jdbcType=VARCHAR}, 
+      #{disposableIncome,jdbcType=VARCHAR}, #{gdpRate,jdbcType=DOUBLE}, #{primaryRate,jdbcType=DOUBLE}, 
+      #{secondRate,jdbcType=DOUBLE}, #{thirdRate,jdbcType=DOUBLE}, #{taxRate,jdbcType=DOUBLE}, 
+      #{year,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.pojo.Economic" >
+    insert into economic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+      <if test="gdp != null" >
+        gdp,
+      </if>
+      <if test="primary != null" >
+        primary,
+      </if>
+      <if test="second != null" >
+        second,
+      </if>
+      <if test="third != null" >
+        third,
+      </if>
+      <if test="taxRevenue != null" >
+        "tax _revenue",
+      </if>
+      <if test="disposableIncome != null" >
+        "disposable _income",
+      </if>
+      <if test="gdpRate != null" >
+        gdp_rate,
+      </if>
+      <if test="primaryRate != null" >
+        primary_rate,
+      </if>
+      <if test="secondRate != null" >
+        second_rate,
+      </if>
+      <if test="thirdRate != null" >
+        third_rate,
+      </if>
+      <if test="taxRate != null" >
+        tax_rate,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gdp != null" >
+        #{gdp,jdbcType=INTEGER},
+      </if>
+      <if test="primary != null" >
+        #{primary,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null" >
+        #{second,jdbcType=VARCHAR},
+      </if>
+      <if test="third != null" >
+        #{third,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRevenue != null" >
+        #{taxRevenue,jdbcType=VARCHAR},
+      </if>
+      <if test="disposableIncome != null" >
+        #{disposableIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="gdpRate != null" >
+        #{gdpRate,jdbcType=DOUBLE},
+      </if>
+      <if test="primaryRate != null" >
+        #{primaryRate,jdbcType=DOUBLE},
+      </if>
+      <if test="secondRate != null" >
+        #{secondRate,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdRate != null" >
+        #{thirdRate,jdbcType=DOUBLE},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=DOUBLE},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.pojo.Economic" >
+    update economic
+    <set >
+      <if test="gdp != null" >
+        gdp = #{gdp,jdbcType=INTEGER},
+      </if>
+      <if test="primary != null" >
+        primary = #{primary,jdbcType=VARCHAR},
+      </if>
+      <if test="second != null" >
+        second = #{second,jdbcType=VARCHAR},
+      </if>
+      <if test="third != null" >
+        third = #{third,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRevenue != null" >
+        "tax _revenue" = #{taxRevenue,jdbcType=VARCHAR},
+      </if>
+      <if test="disposableIncome != null" >
+        "disposable _income" = #{disposableIncome,jdbcType=VARCHAR},
+      </if>
+      <if test="gdpRate != null" >
+        gdp_rate = #{gdpRate,jdbcType=DOUBLE},
+      </if>
+      <if test="primaryRate != null" >
+        primary_rate = #{primaryRate,jdbcType=DOUBLE},
+      </if>
+      <if test="secondRate != null" >
+        second_rate = #{secondRate,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdRate != null" >
+        third_rate = #{thirdRate,jdbcType=DOUBLE},
+      </if>
+      <if test="taxRate != null" >
+        tax_rate = #{taxRate,jdbcType=DOUBLE},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+    </set>
+    where area_code = #{areaCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.pojo.Economic" >
+    update economic
+    set
+      area_code = #{areaCode,jdbcType=VARCHAR},
+      gdp = #{gdp,jdbcType=INTEGER},
+      `primary` = #{primary,jdbcType=VARCHAR},
+      `second` = #{second,jdbcType=VARCHAR},
+      third = #{third,jdbcType=VARCHAR},
+      `tax _revenue` = #{taxRevenue,jdbcType=VARCHAR},
+      `disposable _income` = #{disposableIncome,jdbcType=VARCHAR},
+      gdp_rate = #{gdpRate,jdbcType=DOUBLE},
+      primary_rate = #{primaryRate,jdbcType=DOUBLE},
+      second_rate = #{secondRate,jdbcType=DOUBLE},
+      third_rate = #{thirdRate,jdbcType=DOUBLE},
+      tax_rate = #{taxRate,jdbcType=DOUBLE},
+      year = #{year,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

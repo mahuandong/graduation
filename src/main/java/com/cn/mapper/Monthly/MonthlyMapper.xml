@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.mapper.Monthly.MonthlyMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.pojo.Monthly" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="one" property="one" jdbcType="REAL" />
+    <result column="feb" property="two" jdbcType="REAL" />
+    <result column="three" property="three" jdbcType="REAL" />
+    <result column="four" property="four" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, year, area_code, one, two, three, four
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT * FROM monthly
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from monthly
+    where area_code = #{areaCode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByYear" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from monthly
+    where year = #{year,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from monthly
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.pojo.Monthly" >
+    insert into monthly (id, year, area_code, one, two, three, four)
+    values (#{id,jdbcType=INTEGER}, #{year,jdbcType=INTEGER},
+      #{areaCode,jdbcType=VARCHAR}, #{one,jdbcType=REAL}, #{two,jdbcType=REAL}, #{three,jdbcType=REAL},
+      #{four,jdbcType=REAL)
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.pojo.Monthly" >
+    insert into monthly
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+      <if test="one null" >
+        one,
+      </if>
+      <if test="two != null" >
+        two,
+      </if>
+      <if test="three != null" >
+        three,
+      </if>
+      <if test="four != null" >
+        four,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="one != null" >
+        #{one,jdbcType=REAL},
+      </if>
+      <if test="two != null" >
+        #{two,jdbcType=REAL},
+      </if>
+      <if test="three != null" >
+        #{three,jdbcType=REAL},
+      </if>
+      <if test="four != null" >
+        #{four,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.pojo.Monthly" >
+    update monthly
+    <set >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="one != null" >
+        #{one,jdbcType=REAL},
+      </if>
+      <if test="two != null" >
+        #{two,jdbcType=REAL},
+      </if>
+      <if test="three != null" >
+        #{three,jdbcType=REAL},
+      </if>
+      <if test="four != null" >
+        #{four,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.pojo.Monthly" >
+    update monthly
+    set year = #{year,jdbcType=INTEGER},
+      area_code = #{areaCode,jdbcType=VARCHAR},
+      one = #{one,jdbcType=REAL},
+      two = #{two,jdbcType=REAL},
+      three = #{three,jdbcType=REAL},
+      four = #{four,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
