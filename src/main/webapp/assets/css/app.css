@@ -632,7 +632,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   padding: 2px;
 }
 .tpl-table-list-select {
-  text-align: right;
+  text-align: left;
 }
 .fc-button-group,
 .fc button {
@@ -1354,6 +1354,13 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .theme-black .tpl-table-list-select .am-selected-btn {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+.am-selected-content {
+  padding: 10px 0;
+  background-color: #3a4144;
+}
+.am-selected-text {
+  color: #FFFFFF;
 }
 .theme-black .tpl-table-list-select .am-btn-default.am-active,
 .theme-black .tpl-table-list-select .am-btn-default:active,

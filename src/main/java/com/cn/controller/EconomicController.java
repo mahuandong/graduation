@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 /**
  * 创建时间：2018/1/21  17:15
@@ -33,7 +36,7 @@ public class EconomicController {
     @RequestMapping(value = { "econInsert.json" }, method = { RequestMethod.POST })
     public @ResponseBody int insert(String areaCode,Integer year,Integer gdp,String primary,String second,String third,
                                     String taxRevenue,String disposableIncome,Double gdpRate,Double primaryRate,
-                                    Double secondRate,Double thirdRate,Double taxRate) throws Exception{
+                                    Double secondRate,Double thirdRate) throws Exception{
         Economic parameter = new Economic();
         parameter.setAreaCode(areaCode);
         parameter.setYear(year);
@@ -47,14 +50,15 @@ public class EconomicController {
         parameter.setPrimaryRate(primaryRate);
         parameter.setSecondRate(secondRate);
         parameter.setThirdRate(thirdRate);
-        parameter.setTaxRate(taxRate);
         return this.economicService.insert(parameter);
     }
     //
     @RequestMapping(value = {"econSelectAll.json"},method = {RequestMethod.GET})
     public @ResponseBody
     List<Economic> selectAll(Integer id) throws Exception {
-        return this.economicService.selectAll();
+        List<Economic> economics = new ArrayList<Economic>();
+        economics = this.economicService.selectAll();
+        return economics;
     }
     //根据id选择
     @RequestMapping(value = {"econSelectById.json"},method = {RequestMethod.GET})
@@ -76,7 +80,7 @@ public class EconomicController {
     public @ResponseBody
     Object updateByPrimaryKey(String areaCode,Integer year,Integer gdp,String primary,String second,String third,
                               String taxRevenue,String disposableIncome,Double gdpRate,Double primaryRate,
-                                  Double secondRate,Double thirdRate,Double taxRate)
+                                  Double secondRate,Double thirdRate)
             throws Exception{
         Economic parameter = new Economic();
         parameter.setAreaCode(areaCode);
@@ -91,7 +95,6 @@ public class EconomicController {
         parameter.setPrimaryRate(primaryRate);
         parameter.setSecondRate(secondRate);
         parameter.setThirdRate(thirdRate);
-        parameter.setTaxRate(taxRate);
         Map<String, Object> result = this.economicService.updateByPrimaryKey(parameter);
         return result;
     }

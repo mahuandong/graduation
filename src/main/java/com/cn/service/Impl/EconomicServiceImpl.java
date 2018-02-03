@@ -53,7 +53,6 @@ public class EconomicServiceImpl implements EconomicService {
         Double primaryRate = record.getPrimaryRate();
         Double secondRate = record.getSecondRate();
         Double thirdRate = record.getThirdRate();
-        Double taxRate = record.getTaxRate();
         Integer year = record.getYear();
         if (areaCode == null && gdp == null && primary == null &&
                 second == null && third == null && taxRevenue == null
@@ -98,14 +97,13 @@ public class EconomicServiceImpl implements EconomicService {
         Double primaryRate = record.getPrimaryRate();
         Double secondRate = record.getSecondRate();
         Double thirdRate = record.getThirdRate();
-        Double taxRate = record.getTaxRate();
         Integer year = record.getYear();
         if (areaCode == null){
             ResultUtils.paramsError406(result, "areaCode不能为空");
             return result;
         }if (gdp == null && primary == null && second == null && third == null && taxRevenue == null &&
                 disposableIncome == null && gdpRate == null && primaryRate == null && secondRate == null
-                && thirdRate == null && taxRate == null && year == null) {
+                && thirdRate == null && year == null) {
             ResultUtils.paramsError406(result, "至少要有1个参数有值");
             return result;
         }

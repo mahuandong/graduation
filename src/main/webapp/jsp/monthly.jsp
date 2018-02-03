@@ -20,12 +20,11 @@
     <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <script src="${pageContext.request.contextPath}/assets/js/echarts.min.js"></script>
     <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css">
     <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-
+    <script src="${pageContext.request.contextPath}/assets/js/echarts.js"></script>
 </head>
 
 <body data-type="widgets">

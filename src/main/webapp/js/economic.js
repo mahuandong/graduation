@@ -16,7 +16,7 @@ $(function($){
         }
         s=s+"<td>"+a[i].year+"</td><td>"+a[i].gdp+"</td><td>"+a[i].primary+"</td><td>"+a[i].second+"</td><td>"+
             a[i].third+"</td><td>"+a[i].taxRevenue+"</td><td>"+a[i].disposableIncome+"</td><td>"+a[i].gdpRate+"</td><td>"+
-            a[i].primaryRate+"</td><td>"+a[i].secondRate+"</td><td>"+a[i].thirdRate+"</td><td>"+a[i].taxRate+"</td><td>"+
+            a[i].primaryRate+"</td><td>"+a[i].secondRate+"</td><td>"+a[i].thirdRate+"</td><td>"+
             "<div class=\"tpl-table-black-operation\">"+
             "<a href=\"javascript:;\">"+
             "<i class=\"am-icon-pencil\"></i> 编辑</a>"+

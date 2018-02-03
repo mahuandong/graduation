@@ -8,18 +8,17 @@
     <result column="primary" property="primary" jdbcType="VARCHAR" />
     <result column="second" property="second" jdbcType="VARCHAR" />
     <result column="third" property="third" jdbcType="VARCHAR" />
-    <result column="tax _revenue" property="taxRevenue" jdbcType="VARCHAR" />
-    <result column="disposable _income" property="disposableIncome" jdbcType="VARCHAR" />
+    <result column="tax_revenue" property="taxRevenue" jdbcType="VARCHAR" />
+    <result column="disposable_income" property="disposableIncome" jdbcType="VARCHAR" />
     <result column="gdp_rate" property="gdpRate" jdbcType="DOUBLE" />
     <result column="primary_rate" property="primaryRate" jdbcType="DOUBLE" />
     <result column="second_rate" property="secondRate" jdbcType="DOUBLE" />
     <result column="third_rate" property="thirdRate" jdbcType="DOUBLE" />
-    <result column="tax_rate" property="taxRate" jdbcType="DOUBLE" />
     <result column="year" property="year" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, area_code, gdp, primary, second, third, "tax _revenue", "disposable _income", gdp_rate,
-    primary_rate, second_rate, third_rate, tax_rate, year
+    primary_rate, second_rate, third_rate, year
   </sql>
   <select id="selectAll" resultMap="BaseResultMap"  >
     select
@@ -52,12 +51,12 @@
     insert into economic (area_code, gdp, primary, 
       second, third, "tax _revenue", 
       "disposable _income", gdp_rate, primary_rate, 
-      second_rate, third_rate, tax_rate, 
+      second_rate, third_rate,
       year)
     values (#{areaCode,jdbcType=VARCHAR}, #{gdp,jdbcType=INTEGER}, #{primary,jdbcType=VARCHAR}, 
       #{second,jdbcType=VARCHAR}, #{third,jdbcType=VARCHAR}, #{taxRevenue,jdbcType=VARCHAR}, 
       #{disposableIncome,jdbcType=VARCHAR}, #{gdpRate,jdbcType=DOUBLE}, #{primaryRate,jdbcType=DOUBLE}, 
-      #{secondRate,jdbcType=DOUBLE}, #{thirdRate,jdbcType=DOUBLE}, #{taxRate,jdbcType=DOUBLE}, 
+      #{secondRate,jdbcType=DOUBLE}, #{thirdRate,jdbcType=DOUBLE},
       #{year,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cn.pojo.Economic" >
@@ -95,9 +94,6 @@
       </if>
       <if test="thirdRate != null" >
         third_rate,
-      </if>
-      <if test="taxRate != null" >
-        tax_rate,
       </if>
       <if test="year != null" >
         year,
@@ -137,9 +133,6 @@
       <if test="thirdRate != null" >
         #{thirdRate,jdbcType=DOUBLE},
       </if>
-      <if test="taxRate != null" >
-        #{taxRate,jdbcType=DOUBLE},
-      </if>
       <if test="year != null" >
         #{year,jdbcType=INTEGER},
       </if>
@@ -178,9 +171,6 @@
       <if test="thirdRate != null" >
         third_rate = #{thirdRate,jdbcType=DOUBLE},
       </if>
-      <if test="taxRate != null" >
-        tax_rate = #{taxRate,jdbcType=DOUBLE},
-      </if>
       <if test="year != null" >
         year = #{year,jdbcType=INTEGER},
       </if>
@@ -201,7 +191,6 @@
       primary_rate = #{primaryRate,jdbcType=DOUBLE},
       second_rate = #{secondRate,jdbcType=DOUBLE},
       third_rate = #{thirdRate,jdbcType=DOUBLE},
-      tax_rate = #{taxRate,jdbcType=DOUBLE},
       year = #{year,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

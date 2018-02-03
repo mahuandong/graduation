@@ -25,8 +25,6 @@ public class Economic {
 
     private Double thirdRate;
 
-    private Double taxRate;
-
     private Integer year;
 
     public Integer getId() { return id; }
@@ -119,14 +117,6 @@ public class Economic {
 
     public void setThirdRate(Double thirdRate) {
         this.thirdRate = thirdRate;
-    }
-
-    public Double getTaxRate() {
-        return taxRate;
-    }
-
-    public void setTaxRate(Double taxRate) {
-        this.taxRate = taxRate;
     }
 
     public Integer getYear() {

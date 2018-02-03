@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css">
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
 <body data-type="widgets">
@@ -162,17 +162,16 @@
                                 <tr>
                                     <th>地区</th>
                                     <th>年份</th>
-                                    <th>GDP</th>
-                                    <th>第一产业</th>
-                                    <th>第二产业</th>
-                                    <th>第三产业</th>
+                                    <th>地区生产总值(亿元)</th>
+                                    <th>第一产业增加值(亿元)</th>
+                                    <th>第二产业增加值(亿元)</th>
+                                    <th>第三产业增加值(亿元)</th>
                                     <th>财政收入</th>
                                     <th>人均可支配收入</th>
                                     <th>GDP增长率</th>
                                     <th>第一产业增长率</th>
                                     <th>第二产业增长率</th>
                                     <th>第三产业增长率</th>
-                                    <th>财政收入增长率</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>

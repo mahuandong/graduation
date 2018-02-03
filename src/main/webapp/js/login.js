@@ -17,7 +17,7 @@ function CheckUserDataValid() {
     }
     $.ajax({
         type: "POST",
-        url: "login.json",
+        url: "../login.json",
         dataType:"json",
         data: $('#iform').serialize(),
         success: function(result){
@@ -34,5 +34,5 @@ function CheckUserDataValid() {
 }
 
 function Registered() {
-    window.location.href="/graduation/jsp/index.jsp";
+    window.location.href="/graduation/jsp/economic.jsp";
 }
