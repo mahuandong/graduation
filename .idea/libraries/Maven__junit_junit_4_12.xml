@@ -3,7 +3,13 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.m2/repository/junit/junit/4.12/junit-4.12.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
     <JAVADOC />
+=======
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.m2/repository/junit/junit/4.12/junit-4.12-javadoc.jar!/" />
+    </JAVADOC>
+>>>>>>> origin/master
     <SOURCES>
       <root url="jar://$USER_HOME$/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar!/" />
     </SOURCES>

@@ -3,7 +3,13 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.m2/repository/jstl/jstl/1.2/jstl-1.2.jar!/" />
     </CLASSES>
+<<<<<<< HEAD
     <JAVADOC />
+=======
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.m2/repository/jstl/jstl/1.2/jstl-1.2-javadoc.jar!/" />
+    </JAVADOC>
+>>>>>>> origin/master
     <SOURCES>
       <root url="jar://$USER_HOME$/.m2/repository/jstl/jstl/1.2/jstl-1.2-sources.jar!/" />
     </SOURCES>
