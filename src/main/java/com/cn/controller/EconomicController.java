@@ -52,10 +52,10 @@ public class EconomicController {
         parameter.setThirdRate(thirdRate);
         return this.economicService.insert(parameter);
     }
-    //
+    //全查询
     @RequestMapping(value = {"econSelectAll.json"},method = {RequestMethod.GET})
     public @ResponseBody
-    List<Economic> selectAll(Integer id) throws Exception {
+    List<Economic> selectAll() throws Exception {
         List<Economic> economics = new ArrayList<Economic>();
         economics = this.economicService.selectAll();
         return economics;

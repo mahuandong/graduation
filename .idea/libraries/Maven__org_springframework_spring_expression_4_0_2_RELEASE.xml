@@ -3,13 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-expression/4.0.2.RELEASE/spring-expression-4.0.2.RELEASE.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
-    <JAVADOC />
-=======
     <JAVADOC>
       <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-expression/4.0.2.RELEASE/spring-expression-4.0.2.RELEASE-javadoc.jar!/" />
     </JAVADOC>
->>>>>>> origin/master
     <SOURCES>
       <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-expression/4.0.2.RELEASE/spring-expression-4.0.2.RELEASE-sources.jar!/" />
     </SOURCES>

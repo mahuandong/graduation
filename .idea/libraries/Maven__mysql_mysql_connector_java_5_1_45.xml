@@ -3,13 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.m2/repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
-    <JAVADOC />
-=======
     <JAVADOC>
       <root url="jar://$USER_HOME$/.m2/repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45-javadoc.jar!/" />
     </JAVADOC>
->>>>>>> origin/master
     <SOURCES>
       <root url="jar://$USER_HOME$/.m2/repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45-sources.jar!/" />
     </SOURCES>

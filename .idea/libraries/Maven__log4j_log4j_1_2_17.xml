@@ -3,13 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
-    <JAVADOC />
-=======
     <JAVADOC>
       <root url="jar://$USER_HOME$/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17-javadoc.jar!/" />
     </JAVADOC>
->>>>>>> origin/master
     <SOURCES>
       <root url="jar://$USER_HOME$/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar!/" />
     </SOURCES>

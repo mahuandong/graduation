@@ -3,13 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar!/" />
     </CLASSES>
-<<<<<<< HEAD
-    <JAVADOC />
-=======
     <JAVADOC>
       <root url="jar://$USER_HOME$/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7-javadoc.jar!/" />
     </JAVADOC>
->>>>>>> origin/master
     <SOURCES>
       <root url="jar://$USER_HOME$/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7-sources.jar!/" />
     </SOURCES>

@@ -2,29 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cn.mapper.Area.AreaMapper" >
   <resultMap id="BaseResultMap" type="com.cn.pojo.Area" >
-    <id column="area_code" property="areaCode" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="level" property="level" jdbcType="INTEGER" />
-    <result column="p_area_code" property="pAreaCode" jdbcType="VARCHAR" />
-    <result column="province" property="province" jdbcType="VARCHAR" />
-    <result column="city" property="city" jdbcType="VARCHAR" />
-    <result column="display" property="display" jdbcType="INTEGER" />
-    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
-    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PARENT_ID" property="parentId" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="SHORT_NAME" property="shortName" jdbcType="VARCHAR" />
+    <result column="LONGITUDE" property="longitude" jdbcType="FLOAT" />
+    <result column="LATITUDE" property="latitude" jdbcType="FLOAT" />
+    <result column="LEVEL" property="level" jdbcType="INTEGER" />
+    <result column="SORT" property="sort" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    area_code, name, level, p_area_code, province, city, display, img_url, pinyin
+    ID,PARENT_ID,NAME,SHORT_NAME,LONGITUDE,LATITUDE,LEVEL,SORT,STATUS
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from area
-    where area_code = #{areaCode,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap"  >
+    select * from area
   </select>
-  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select
-    <include refid="Base_Column_List" />
-    from area
-    where name = #{name,jdbcType=VARCHAR}
+  <select id="selectByLevel" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from area where LEVEL = #{LEVEL ,jdbcType=INTEGER}
   </select>
+
 </mapper>

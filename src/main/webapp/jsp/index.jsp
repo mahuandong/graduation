@@ -24,8 +24,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/echarts.js"></script>
-
+    <script src="${pageContext.request.contextPath}/assets/js/echarts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/dark.js"></script>
+    <script src="${pageContext.request.contextPath}/js/index.js"></script>
 </head>
 
 <body data-type="index">
@@ -113,38 +114,13 @@
                     <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon">
                         	</span> 部件首页 <small>Amaze UI</small>
                         <br><br>
+                        <div id="js-selected-info"></div>
                         <div class="">
                             <div class="am-form-group tpl-table-list-select">
-                                <samp>指标  </samp>
-                                <select data-am-selected="{btnSize: 'sm',searchBox: 1}">
-                                    <option value="option1">所有类别</option>
-                                    <option value="option2">IT业界</option>
-                                    <option value="option3">数码产品</option>
-                                    <option value="option3">笔记本电脑</option>
-                                    <option value="option3">平板电脑</option>
-                                    <option value="option3">只能手机</option>
-                                    <option value="option3">超极本</option>
-                                </select>
                                 <samp>地区  </samp>
-                                <select data-am-selected="{btnSize: 'sm',searchBox: 1}">
-                                    <option value="option1">所有类别</option>
-                                    <option value="option2">IT业界</option>
-                                    <option value="option3">数码产品</option>
-                                    <option value="option3">笔记本电脑</option>
-                                    <option value="option3">平板电脑</option>
-                                    <option value="option3">只能手机</option>
-                                    <option value="option3">超极本</option>
-                                </select>
-                                <samp> 时间  </samp>
-                                <select data-am-selected="{btnSize: 'sm',searchBox: 1}">
-                                    <option value="option1">所有类别</option>
-                                    <option value="option2">IT业界</option>
-                                    <option value="option3">数码产品</option>
-                                    <option value="option3">笔记本电脑</option>
-                                    <option value="option3">平板电脑</option>
-                                    <option value="option3">只能手机</option>
-                                    <option value="option3">超极本</option>
-                                </select>
+                                <select id="region" data-am-selected="{maxHeight: 500%}"></select>
+                                <samp> 指标  </samp>
+                                <select id="belongs" data-am-selected="{maxHeight: 500%}"></select>
                             </div>
                         </div>
                     </div>
@@ -160,38 +136,13 @@
                     </div>
                 </div>
                 <div class="widget-body am-fr">
-                    <div style="height: 400px" class="" id="tpl-echarts-A">
-
-                    </div>
+                    <div style="height: 550%" class="" id="tpl-echarts"></div>
                 </div>
             </div>
         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
         <script type="text/javascript">
-            // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('tpl-echarts-A'));
 
-            // 指定图表的配置项和数据
-            var option = {
-                title: {
-                    text: 'ECharts 入门示例'
-                },
-                tooltip: {},
-                legend: {
-                    data:['销量']
-                },
-                xAxis: {
-                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                },
-                yAxis: {},
-                series: [{
-                    name: '销量',
-                    type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
-                }]
-            };
 
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
         </script>
     </div>
 </div>

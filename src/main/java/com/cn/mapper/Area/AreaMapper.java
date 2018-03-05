@@ -1,13 +1,12 @@
 package com.cn.mapper.Area;
 
 import com.cn.pojo.Area;
-import org.mybatis.spring.annotation.MapperScan;
 
-@MapperScan
+import java.util.List;
+
 public interface AreaMapper {
 
-    Area selectByPrimaryKey(String areaCode);
+    List<Area> selectAll();
 
-    Area selectByName(String name);
-
+    List<Area> selectByLevel(Integer level);
 }

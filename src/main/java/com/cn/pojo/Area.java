@@ -1,93 +1,58 @@
 package com.cn.pojo;
 
 public class Area {
-    private String areaCode;
+
+    private Integer id;
+
+    private Integer parentId;
 
     private String name;
 
+    private String shortName;
+
+    private Float longitude;//经度
+
+    private Float latitude;//维度
+
     private Integer level;
 
-    private String pAreaCode;
+    private Integer sort;
 
-    private String province;
+    private Integer status;//状态
 
-    private String city;
+    public Integer getId() { return id; }
 
-    private Integer display;
+    public void setId(Integer id) { this.id = id; }
 
-    private String imgUrl;
+    public Integer getParentId() { return parentId; }
 
-    private String pinyin;
+    public void setParentId(Integer parentId) { this.parentId = parentId; }
 
-    public String getAreaCode() {
-        return areaCode;
-    }
+    public String getName() { return name; }
 
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode == null ? null : areaCode.trim();
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    public String getShortName() { return shortName; }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+    public void setShortName(String shortName) { this.shortName = shortName; }
 
-    public Integer getLevel() {
-        return level;
-    }
+    public Float getLongitude() { return longitude; }
 
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
+    public void setLongitude(Float longitude) { this.longitude = longitude; }
 
-    public String getpAreaCode() {
-        return pAreaCode;
-    }
+    public Float getLatitude() { return latitude; }
 
-    public void setpAreaCode(String pAreaCode) {
-        this.pAreaCode = pAreaCode == null ? null : pAreaCode.trim();
-    }
+    public void setLatitude(Float latitude) { this.latitude = latitude; }
 
-    public String getProvince() {
-        return province;
-    }
+    public Integer getLevel() { return level; }
 
-    public void setProvince(String province) {
-        this.province = province == null ? null : province.trim();
-    }
+    public void setLevel(Integer level) { this.level = level; }
 
-    public String getCity() {
-        return city;
-    }
+    public Integer getSort() { return sort; }
 
-    public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
-    }
+    public void setSort(Integer sort) { this.sort = sort; }
 
-    public Integer getDisplay() {
-        return display;
-    }
+    public Integer getStatus() { return status; }
 
-    public void setDisplay(Integer display) {
-        this.display = display;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
-    }
-
-    public String getPinyin() {
-        return pinyin;
-    }
-
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin == null ? null : pinyin.trim();
-    }
+    public void setStatus(Integer status) { this.status = status; }
 }
