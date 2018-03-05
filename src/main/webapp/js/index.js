@@ -29,14 +29,18 @@ $(function($){
     });
     console.log(belongs);//打印服务端返回的数据(调试用)
     for(var i = 0; i < belongs.length; i++) {
-        a = "<option value="+belongs[i].index+">"+belongs[i].index+"</option>"
+        a = "<option value="+belongs[i].field+">"+belongs[i].index+"</option>";
         $("#belongs").append(a);
     }
 
-    $selected.on('change', function() {
-        region = $('#region').find('option').eq(this.selectedIndex).val()
+    $selected1.on('change', function() {
+        region = $('#region').find('option').eq(this.selectedIndex).val();
         console.log(region);
     });
+    $selected2.on('change',function () {
+        belongs = $('#belongs').find('option').eq(this.selectedIndex).val();
+        console.log(belongs);
+    })
 
     // 指定图表的配置项和数据
     // var myChart = echarts.init(document.getElementById('tpl-echarts'),'dark');
