@@ -6,27 +6,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 创建时间：2018/1/20  22:40
+ * 创建时间：2018/03/07 19:09
  * 项目名称：graduation
  *
  * @author mahua
  * Package com.cn.service
  * @version 1.0
- * 类说明：发展情况ervice接口
+ * 类说明：人口Service接口类
  */
 public interface HappenService {
 
-    int deleteByPrimaryKey(Integer id);
+    List<Happen> select();
 
-    int insert(Happen record);
+    List<Happen> selectByAreaYear(Happen record);
 
-    List<Happen> selectAll();
-
-    Happen selectByPrimaryKey(Integer id);
-
-    Happen selectByYear(Integer year);
-
-    Happen selectByArea(String areaCode);
+    List<Happen> selectById(Integer id);
 
     Map<String, Object> updateByPrimaryKey(Happen record);
+
+    int deleteByPrimaryKey(Integer id);
 }

@@ -1,8 +1,9 @@
 <%--
   Created by IntelliJ IDEA.
-  User: mahua
-  Date: 2018/1/27
-  Time: 17:57
+  User: 马焕栋
+  Date: 2018/3/7
+  Time: 1:22
+  地区季度经济状况页面
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -77,6 +78,7 @@
     <div class="left-sidebar">
         <!-- 菜单 -->
         <ul class="sidebar-nav">
+            <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
             <li class="sidebar-nav-link">
                 <a href="javascript:;" class="sidebar-nav-sub-title">
                     <i class="am-icon-table sidebar-nav-link-logo"></i> 分省经济
@@ -84,13 +86,13 @@
                 </a>
                 <ul class="sidebar-nav sidebar-nav-sub">
                     <li class="sidebar-nav-link">
-                        <a href="${pageContext.request.contextPath}/jsp/index.jsp">
+                        <a href="index.jsp">
                             <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 年度经济
                         </a>
                     </li>
 
                     <li class="sidebar-nav-link">
-                        <a href="${pageContext.request.contextPath}/jsp/quarterly.jsp">
+                        <a href="quarterly.jsp">
                             <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 季度经济
                         </a>
                     </li>
@@ -117,8 +119,8 @@
                             <div class="am-form-group tpl-table-list-select">
                                 <label for="region">地区：</label>
                                 <select id="region"  data-am-selected="{maxHeight: 300,searchBox: 1}"></select>
-                                <label for="belongs">指标：</label>
-                                <select id="belongs"  data-am-selected="{}"></select>
+                                <label for="date">时间：</label>
+                                <select id="date"  data-am-selected="{maxHeight: 300}"></select>
                             </div>
                         </div>
                     </div>
@@ -131,18 +133,19 @@
                     <div class="widget-title am-fl">图表</div>
                 </div>
                 <div class="widget-body am-fr">
-                    <div style="height: 550%" class="" id="tpl-echarts-A"></div>
+                    <div style="height: 550%" class="" id="echarts-A"></div>
                 </div>
             </div>
+
+        </div>
     </div>
-</div>
 </div>
 <script src="${pageContext.request.contextPath}/assets/js/amazeui.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/amazeui.datatables.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/dataTables.responsive.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
 <script src="${pageContext.request.contextPath}/js/cookies.js"></script>
-<script src="${pageContext.request.contextPath}/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/js/quarterly.js"></script>
 </body>
 
 </html>

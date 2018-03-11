@@ -72,7 +72,7 @@ public class EconomicController {
     }
     //根据地区选择
     @RequestMapping(value = {"econSelectByArea.json"},method = {RequestMethod.GET})
-        public @ResponseBody Economic selectByArea(String areaCode) throws Exception {
+        public @ResponseBody  List<Economic> selectByArea(String areaCode) throws Exception {
         return this.economicService.selectByArea(areaCode);
     }
     //更新

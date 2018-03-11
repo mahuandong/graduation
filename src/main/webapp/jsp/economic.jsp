@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dialog.css">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
@@ -34,7 +35,7 @@
     <header>
         <!-- logo -->
         <div class="am-fl tpl-header-logo">
-            <a href="javascript:;"><img src="${pageContext.request.contextPath}/assets/img/logo.png" alt=""></a>
+            <a href="${pageContext.request.contextPath}/jsp/index.jsp"><img src="${pageContext.request.contextPath}/assets/img/logo.png" alt=""></a>
         </div>
         <!-- 右侧内容 -->
         <div class="tpl-header-fluid">
@@ -50,7 +51,7 @@
                 <ul>
                     <!-- 欢迎语 -->
                     <li class="am-text-sm tpl-header-navbar-welcome">
-                        <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                        <a href="javascript:;">欢迎你, <span id="welcomeName1"></span> </a>
                     </li>
 
                     <!-- 退出 -->
@@ -88,20 +89,12 @@
                 </div>
                 <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-                        <p id="name">禁言小张</p>
-          </span>
-                <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+                        <p id="welcomeName2"></p></span>
             </div>
         </div>
 
         <!-- 菜单 -->
         <ul class="sidebar-nav">
-            <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
-            <li class="sidebar-nav-link">
-                <a href="index.jsp">
-                    <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
-                </a>
-            </li>
             <li class="sidebar-nav-link">
                 <a href="user.jsp">
                     <i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理
@@ -120,7 +113,7 @@
             </li>
             <li class="sidebar-nav-link">
                 <a href="monthly.jsp">
-                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 分月情况管理
+                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 季度情况管理
 
                 </a>
             </li>
@@ -133,31 +126,24 @@
         <div class="container-fluid am-cf">
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 表格 <small>Amaze UI</small></div>
-                    <p class="page-header-description">Amaze UI 有许多不同的表格可用。</p>
-                </div>
-                <div class="am-u-lg-3 tpl-index-settings-button">
-                    <button type="button" class="page-header-button"><span class="am-icon-paint-brush"></span> 设置</button>
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"> 地区年度经济</span></div>
+                    <p class="page-header-description">以下数据仅做演示，不保证数据准确性</p>
                 </div>
             </div>
 
         </div>
 
         <div class="row-content am-cf">
-
-
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">自适应表格</div>
-                            <div class="widget-function am-fr">
-                                <a href="javascript:;" class="am-icon-cog"></a>
-                            </div>
+                            <div class="widget-title am-fl">数据表格</div>
                         </div>
                         <div class="widget-body  widget-body-lg am-fr">
 
-                            <table  class="am-table am-table-compact tpl-table-black " id="economicList">
+                            <table  class="page-header-description am-table am-table-bordered am-table-radius am-table-striped am-table-centered am-text-nowrap am-text-middle"
+                                    id="economicList">
                                 <thead>
                                 <tr>
                                     <th>地区</th>
@@ -186,8 +172,89 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">经济状况编辑</div>
+            <div class="am-modal-bd">
+                <form id="economic" class="am-form tpl-form-line-form">
+                    <div class="am-form-group">
+                        <label for="year">年：</label>
+                        <input  type="text" class="tpl-form-input" id="year"  name="year" placeholder="请输入年"
+                                required="required" style="width: 690px" readonly="readonly" >
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="areaCode">地区：</label>
+                        <input type="text" class="tpl-form-input" id="areaCode" name="areaCode" readonly="readonly"
+                               required="required" style="width: 675px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="gdp">地区生产总值(亿元)：</label>
+                        <input type="text" class="tpl-form-input" id="gdp" name="gdp" placeholder="请输入密码"
+                               required="required" style="width: 565px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="primary">第一产业增加值(亿元):</label>
+                        <input type="text" class="tpl-form-input" id="primary" name="primary" placeholder="请输入值"
+                               required="required" style="width: 560px;padding-left:4px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="second">第二产业增加值(亿元):</label>
+                        <input type="text" class="tpl-form-input" id="second" name="second" placeholder="请输入值"
+                               required="required" style="width: 560px;padding-left:4px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="third">第三产业增加值(亿元):</label>
+                        <input type="text" class="tpl-form-input" id="third" name="third" placeholder="请输入值"
+                               required="required" style="width: 560px;padding-left:4px">
+                    </div>
+                    <div class="am-form-group">
+                        <label for="taxRevenue">财政收入(亿元):</label>
+                        <input type="text" class="tpl-form-input" id="taxRevenue" name="taxRevenue" placeholder="请输入值"
+                               required="required" style="width: 608px ; padding-left:4px">
+                    </div>
+                    <div class="am-form-group">
+                        <label for="disposableIncome">人均可支配收入(元):</label>
+                        <input type="text" class="tpl-form-input" id="disposableIncome" name="disposableIncome" placeholder="请输入值"
+                               required="required" style="width: 578px ; padding-left:4px">
+                    </div>
+                    <div class="am-form-group">
+                        <label for="gdpRate">GDP增长率:</label>
+                        <input type="text" class="tpl-form-input" id="gdpRate" name="gdpRate" placeholder="请输入值"
+                               required="required" style="width: 635px ; padding-left:4px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="primaryRate">第一产业增长率:</label>
+                        <input type="text" class="tpl-form-input" id="primaryRate" name="primaryRate" placeholder="请输入值"
+                               required="required" style="width: 600px ; padding-left:4px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="secondRate">第二产业增长率:</label>
+                        <input type="text" class="tpl-form-input" id="secondRate" name="secondRate" placeholder="请输入值"
+                               required="required" style="width: 600px ; padding-left:4px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="thirdRate">第一产业增长率:</label>
+                        <input type="text" class="tpl-form-input" id="thirdRate" name="thirdRate" placeholder="请输入值"
+                               required="required" style="width: 600px; padding-left:4px">
+                    </div>
+
+                    <button id="submit" class="am-btn am-btn-primary btn-loading-example" type="button" form="user" value="确定">确定</button>
+                    <button id="cancel" class="am-btn am-btn-primary btn-loading-example" type="button" form="user" value="取消">取消</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
 <script src="${pageContext.request.contextPath}/assets/js/amazeui.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/amazeui.datatables.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/dataTables.responsive.min.js"></script>

@@ -6,21 +6,27 @@
     <result column="year" property="year" jdbcType="INTEGER" />
     <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
     <result column="one" property="one" jdbcType="REAL" />
-    <result column="feb" property="two" jdbcType="REAL" />
+    <result column="feb" property="feb" jdbcType="REAL" />
     <result column="three" property="three" jdbcType="REAL" />
     <result column="four" property="four" jdbcType="REAL" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, year, area_code, one, two, three, four
+    id, year, area_code, one, feb, three, four
   </sql>
   <select id="selectAll" resultMap="BaseResultMap">
     SELECT * FROM monthly
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from monthly
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByArea" resultMap="BaseResultMap" parameterType="com.cn.pojo.Monthly" >
     select 
     <include refid="Base_Column_List" />
     from monthly
-    where area_code = #{areaCode,jdbcType=VARCHAR}
+    where area_code = #{areaCode,jdbcType=VARCHAR} AND year = #{year,jdbcType=INTEGER}
   </select>
   <select id="selectByYear" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select

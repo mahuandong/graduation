@@ -301,7 +301,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .user-panel-logged-in-text {
   display: block;
   color: #cfcfcf;
-  font-size: 14px;
+  font-size: 16px;
 }
 .tpl-user-panel-action-link {
   color: #6d787c;
@@ -379,7 +379,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   position: relative;
   margin-left: 240px;
   z-index: 1101;
-  min-height: 922px;
+  min-height: 100%;
   border-bottom-left-radius: 3px;
 }
 .tpl-content-wrapper.xs-active {
@@ -1404,6 +1404,8 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .theme-black .tpl-form-line-form,
 .theme-black .tpl-form-border-form {
   padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .theme-black .tpl-form-line-form .am-btn-default,
 .theme-black .tpl-form-border-form .am-btn-default {
@@ -1916,4 +1918,14 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
     top: 112px;
     right: 0;
   }
+}
+.am-table > tbody > tr > td{
+  vertical-align: middle;
+}
+
+.login{
+  background-color:#2f3638;
+  padding: 0;
+  margin-top: 16px;
+
 }

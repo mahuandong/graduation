@@ -19,7 +19,7 @@ public interface EconomicMapper {
 
     Economic selectByYear(Integer year);
 
-    Economic selectByArea(String areaCode);
+    List<Economic> selectByArea(String areaCode);
 
     int updateByPrimaryKeySelective(Economic record);
 

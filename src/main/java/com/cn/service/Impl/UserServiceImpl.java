@@ -33,6 +33,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User selectByPrimaryKey(Integer id) throws Exception {
+        return this.userMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public int insertSelective(User record) throws Exception {
         return this.userMapper.insertSelective(record);
     }

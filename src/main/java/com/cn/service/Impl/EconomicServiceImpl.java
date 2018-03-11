@@ -78,7 +78,7 @@ public class EconomicServiceImpl implements EconomicService {
     }
 
     @Override
-    public Economic selectByArea(String areaCode) throws Exception {
+    public List<Economic> selectByArea(String areaCode) throws Exception {
         return this.economicMapper.selectByArea(areaCode);
     }
 

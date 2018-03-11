@@ -1,25 +1,21 @@
 package com.cn.mapper.Happen;
 
 import com.cn.pojo.Happen;
-import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
-@MapperScan
 public interface HappenMapper {
-    int deleteByPrimaryKey(Integer areaCode);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Happen record);
 
     int insertSelective(Happen record);
 
-    List<Happen> selectAll();
+    List<Happen> select();
 
-    Happen selectByPrimaryKey(Integer id);
+    List<Happen> selectById(Integer id);
 
-    Happen selectByYear(Integer year);
-
-    Happen selectByArea(String areaCode);
+    List<Happen> selectByAreaYear(Happen record);
 
     int updateByPrimaryKeySelective(Happen record);
 

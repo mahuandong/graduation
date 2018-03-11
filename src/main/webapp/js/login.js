@@ -21,9 +21,13 @@ function CheckUserDataValid() {
         dataType:"json",
         data: $('#iform').serialize(),
         success: function(result){
-            console.log(result);//打印服务端返回的数据(调试用)
+
             if (result.name != "") {
-                window.location.href="/graduation/jsp/index.jsp";
+                setCookie("id",result.id);
+                setCookie("name",result.name);
+                setCookie("account",result.account);
+                setCookie("password",result.password);
+                window.location.href="/graduation/jsp/user.jsp";
             };
         },
         error:function() {
@@ -32,7 +36,7 @@ function CheckUserDataValid() {
         }
         });
 }
-
-function Registered() {
-    window.location.href="/graduation/jsp/economic.jsp";
+function setCookie(name,value)
+{
+    document.cookie = name + "=" + value + "; " ;
 }

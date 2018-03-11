@@ -1,3 +1,11 @@
-.am-selected-content {
+select {
+    border: solid 1px #000;
+
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+
+    padding-right: 14px;
+    font-size: 12px;
     background-color: #3a4144;
 }

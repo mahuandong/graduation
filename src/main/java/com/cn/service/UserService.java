@@ -12,6 +12,8 @@ public interface UserService {
 
     User selectByName(User record)throws Exception;
 
+    User selectByPrimaryKey(Integer id)throws Exception;
+
     int insertSelective(User record)throws Exception;
 
     int insert(User record) throws ParseException;

@@ -1,6 +1,6 @@
 package com.cn.service;
 
-import com.cn.pojo.Economic;
+
 import com.cn.pojo.Monthly;
 
 import java.util.List;
@@ -23,7 +23,9 @@ public interface MonthlyService {
 
     List<Monthly> selectAll();
 
-    Monthly selectByPrimaryKey(Integer id);
+    Monthly selectById(Integer id);
+
+    List<Monthly> selectByArea(Monthly record);
 
     Monthly selectByYear(Integer year);
 

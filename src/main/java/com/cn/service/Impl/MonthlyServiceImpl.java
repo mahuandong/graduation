@@ -34,7 +34,7 @@ public class MonthlyServiceImpl implements MonthlyService{
         Integer year = record.getYear();
         String areaCode = record.getAreaCode();
         Float one = record.getOne();
-        Float two = record.getTwo();
+        Float feb = record.getFeb();
         Float three = record.getThree();
         Float four = record.getFour();
         if (year == null && areaCode == null) {
@@ -51,9 +51,12 @@ public class MonthlyServiceImpl implements MonthlyService{
     }
 
     @Override
-    public Monthly selectByPrimaryKey(Integer id) {
-        return this.monthlyMapper.selectByPrimaryKey(id);
+    public Monthly selectById(Integer id) {
+        return this.monthlyMapper.selectById(id);
     }
+
+    @Override
+    public List<Monthly> selectByArea(Monthly record) { return this.monthlyMapper.selectByArea(record); }
 
     @Override
     public Monthly selectByYear(Integer year) {
@@ -67,14 +70,14 @@ public class MonthlyServiceImpl implements MonthlyService{
         Integer year = record.getYear();
         String areaCode = record.getAreaCode();
         Float one = record.getOne();
-        Float two = record.getTwo();
+        Float feb = record.getFeb();
         Float three = record.getThree();
         Float four = record.getFour();
         if (id == null){
             ResultUtils.paramsError406(result, "id不能为空");
             return result;
         }
-        if (year == null && areaCode == null && one == null && two == null && three == null && four == null) {
+        if (year == null && areaCode == null && one == null && feb == null && three == null && four == null) {
             ResultUtils.paramsError406(result, "至少要有1个参数有值");
             return result;
         }

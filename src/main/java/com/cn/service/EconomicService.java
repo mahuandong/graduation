@@ -25,7 +25,7 @@ public interface EconomicService {
 
     Economic selectByYear(Integer year)throws Exception;
 
-    Economic selectByArea(String areaCode)throws Exception;
+    List<Economic> selectByArea(String areaCode)throws Exception;
 
     Map<String, Object> updateByPrimaryKey(Economic record)throws Exception;
 }

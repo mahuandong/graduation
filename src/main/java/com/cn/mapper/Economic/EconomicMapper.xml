@@ -154,10 +154,10 @@
         third = #{third,jdbcType=VARCHAR},
       </if>
       <if test="taxRevenue != null" >
-        "tax _revenue" = #{taxRevenue,jdbcType=VARCHAR},
+        "tax_revenue" = #{taxRevenue,jdbcType=VARCHAR},
       </if>
       <if test="disposableIncome != null" >
-        "disposable _income" = #{disposableIncome,jdbcType=VARCHAR},
+        "disposable_income" = #{disposableIncome,jdbcType=VARCHAR},
       </if>
       <if test="gdpRate != null" >
         gdp_rate = #{gdpRate,jdbcType=DOUBLE},
@@ -185,8 +185,8 @@
       `primary` = #{primary,jdbcType=VARCHAR},
       `second` = #{second,jdbcType=VARCHAR},
       third = #{third,jdbcType=VARCHAR},
-      `tax _revenue` = #{taxRevenue,jdbcType=VARCHAR},
-      `disposable _income` = #{disposableIncome,jdbcType=VARCHAR},
+      tax_revenue = #{taxRevenue,jdbcType=VARCHAR},
+      disposable_income = #{disposableIncome,jdbcType=VARCHAR},
       gdp_rate = #{gdpRate,jdbcType=DOUBLE},
       primary_rate = #{primaryRate,jdbcType=DOUBLE},
       second_rate = #{secondRate,jdbcType=DOUBLE},

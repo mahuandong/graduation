@@ -1,32 +1,46 @@
 package com.cn.pojo;
 
-public class Happen {
+import java.io.Serializable;
+
+public class Happen implements Serializable {
     private Integer id;
-
-    private String areaCode;
-
-    private Integer population;
-
-    private Integer laborForce;
-
-    private String primary;
-
-    private String second;
-
-    private String third;
 
     private Integer year;
 
-    public Integer getId() { return id; }
+    private Integer areaCode;
 
-    public void setId(Integer id) { this.id = id; }
+    private Integer population;
 
-    public String getAreaCode() {
+    private Float birth;
+
+    private Float death;
+
+    private Float growth;
+
+    private static final long serialVersionUID = 1L;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getAreaCode() {
         return areaCode;
     }
 
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode == null ? null : areaCode.trim();
+    public void setAreaCode(Integer areaCode) {
+        this.areaCode = areaCode;
     }
 
     public Integer getPopulation() {
@@ -37,39 +51,27 @@ public class Happen {
         this.population = population;
     }
 
-    public Integer getLaborForce() {
-        return laborForce;
+    public Float getBirth() {
+        return birth;
     }
 
-    public void setLaborForce(Integer laborForce) {
-        this.laborForce = laborForce;
+    public void setBirth(Float birth) {
+        this.birth = birth;
     }
 
-    public String getPrimary() {
-        return primary;
+    public Float getDeath() {
+        return death;
     }
 
-    public void setPrimary(String primary) {
-        this.primary = primary == null ? null : primary.trim();
+    public void setDeath(Float death) {
+        this.death = death;
     }
 
-    public String getSecond() {
-        return second;
+    public Float getGrowth() {
+        return growth;
     }
 
-    public void setSecond(String second) {
-        this.second = second == null ? null : second.trim();
+    public void setGrowth(Float growth) {
+        this.growth = growth;
     }
-
-    public String getThird() {
-        return third;
-    }
-
-    public void setThird(String third) {
-        this.third = third == null ? null : third.trim();
-    }
-
-    public Integer getYear() { return year; }
-
-    public void setYear(Integer year) { this.year = year; }
 }

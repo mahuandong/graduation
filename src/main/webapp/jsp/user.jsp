@@ -21,9 +21,10 @@
     <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <script src="${pageContext.request.contextPath}/assets/js/echarts.min.js"></script>
-    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dialog.css">
     <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 </head>
 
@@ -34,7 +35,7 @@
     <header>
         <!-- logo -->
         <div class="am-fl tpl-header-logo">
-            <a href="javascript:;"><img src="${pageContext.request.contextPath}/assets/img/logo.png" alt=""></a>
+            <a href="${pageContext.request.contextPath}/jsp/index.jsp"><img src="${pageContext.request.contextPath}/assets/img/logo.png" alt=""></a>
         </div>
         <!-- 右侧内容 -->
         <div class="tpl-header-fluid">
@@ -50,12 +51,12 @@
                 <ul>
                     <!-- 欢迎语 -->
                     <li class="am-text-sm tpl-header-navbar-welcome">
-                        <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                        <a href="javascript:;">欢迎你, <span id="welcomeName1"></span> </a>
                     </li>
 
                     <!-- 退出 -->
                     <li class="am-text-sm">
-                        <a href="javascript:;">
+                        <a href="${pageContext.request.contextPath}/jsp/login.jsp">
                             <span class="am-icon-sign-out"></span> 退出
                         </a>
                     </li>
@@ -88,20 +89,12 @@
                 </div>
                 <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-                        <p id="name">禁言小张</p>
-          </span>
-                <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+                        <p id="welcomeName2"></p></span>  
             </div>
         </div>
 
         <!-- 菜单 -->
         <ul class="sidebar-nav">
-            <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
-            <li class="sidebar-nav-link">
-                <a href="index.jsp">
-                    <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
-                </a>
-            </li>
             <li class="sidebar-nav-link">
                 <a href="user.jsp" class="active">
                     <i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理
@@ -114,13 +107,13 @@
             </li>
             <li class="sidebar-nav-link">
                 <a href="happen.jsp">
-                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 发展情况管理
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 人口情况管理
 
                 </a>
             </li>
             <li class="sidebar-nav-link">
                 <a href="monthly.jsp">
-                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 分月情况管理
+                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 季度情况管理
 
                 </a>
             </li>
@@ -129,15 +122,11 @@
 
     <!-- 内容区域 -->
     <div class="tpl-content-wrapper">
-
         <div class="container-fluid am-cf">
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 表格 <small>Amaze UI</small></div>
-                    <p class="page-header-description">Amaze UI 有许多不同的表格可用。</p>
-                </div>
-                <div class="am-u-lg-3 tpl-index-settings-button">
-                    <button type="button" class="page-header-button"><span class="am-icon-paint-brush"></span> 设置</button>
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 用户 </div>
+                    <p class="page-header-description">以下数据仅做演示，不保证数据准确性</p>
                 </div>
             </div>
 
@@ -150,14 +139,12 @@
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">自适应表格</div>
-                            <div class="widget-function am-fr">
-                                <a href="javascript:;" class="am-icon-cog"></a>
-                            </div>
+                            <div class="widget-title am-fl">数据表格</div>
                         </div>
                         <div class="widget-body  widget-body-lg am-fr">
 
-                            <table id="dg" class="page-header-description am-table am-table-bordered am-table-radius am-table-striped am-table-centered am-text-nowrap am-text-middle">
+                            <table id="dg" class="page-header-description am-table am-table-bordered am-table-radius
+                            am-table-striped am-table-centered am-text-nowrap am-text-middle">
                                 <thead>
                                 <tr>
                                     <th>昵称</th>
@@ -166,15 +153,67 @@
                                     <th>电话</th>
                                     <th>性别</th>
                                     <th>邮箱</th>
+                                    <th>更新时间</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody id="userList"></tbody>
+                                <tbody id="userList" ></tbody>
                             </table>
 
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">Amaze UI</div>
+            <div class="am-modal-bd">
+                <form id="user" class="am-form tpl-form-line-form">
+                    <div class="am-form-group">
+                        <label for="name">昵称：</label>
+                        <input  type="text" class="tpl-form-input" id="name"  name="name" placeholder="请输入昵称"
+                                required="required" style="width: 690px" >
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="account">账号：</label>
+                        <input type="text" class="tpl-form-input" id="account" name="account" readonly="readonly"
+                               required="required" style="width: 680px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="password">密码：</label>
+                        <input type="password" class="tpl-form-input" id="password" name="password" placeholder="请输入密码"
+                               required="required" style="width: 690px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="phone">手机：</label>
+                        <input type="text" class="tpl-form-input" id="phone" name="phone" placeholder="请输入电话"
+                               required="required" style="width: 690px">
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="sex">性别：</label>
+                        <div id="sex" style="text-align: left">
+                            <input type="radio" class="tpl-form-input" id="male"  name="sex" value="0"/>男
+                            <input type="radio" class="tpl-form-input" id="female" name="sex" value="1" />女
+                        </div>
+
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="email">邮箱：</label>
+                        <input type="text" class="tpl-form-input" id="email" name="email" placeholder="请输入邮箱"
+                               required="required" style="width: 690px"/>
+                    </div>
+                    <button id="submit" class="am-btn am-btn-primary btn-loading-example" type="button" form="user" value="确定">确定</button>
+                    <button id="cancel" class="am-btn am-btn-primary btn-loading-example" type="button" form="user" value="取消">取消</button>
+                </form>
             </div>
         </div>
     </div>

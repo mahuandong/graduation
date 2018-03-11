@@ -13,9 +13,11 @@ public interface MonthlyMapper {
 
     int insertSelective(Monthly record);
 
+    Monthly selectById(Integer id);
+
     List<Monthly> selectAll();
 
-    Monthly selectByPrimaryKey(Integer id);
+    List<Monthly> selectByArea(Monthly record);
 
     Monthly selectByYear(Integer year);
 

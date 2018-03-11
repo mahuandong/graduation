@@ -56,8 +56,8 @@
                 }
             },
             "symbolSize": 4,
-            "symbol": "circle",
-            "smooth": false
+            "symbol": "emptyCircle",
+            "smooth": true
         },
         "radar": {
             "itemStyle": {
@@ -71,8 +71,8 @@
                 }
             },
             "symbolSize": 4,
-            "symbol": "circle",
-            "smooth": false
+            "symbol": "emptyCircle",
+            "smooth": true
         },
         "bar": {
             "itemStyle": {
@@ -195,8 +195,8 @@
                 }
             },
             "symbolSize": 4,
-            "symbol": "circle",
-            "smooth": false,
+            "symbol": "emptyCircle",
+            "smooth": true,
             "color": [
                 "#dd6b66",
                 "#759aa0",
@@ -290,7 +290,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -326,7 +326,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -362,7 +362,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -398,7 +398,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -517,5 +517,3 @@
         }
     });
 }));
-
-                    

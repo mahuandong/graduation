@@ -1,0 +1,11 @@
+.am-modal-dialog {
+    background-color: #4b5357;
+    color: #fff;
+    width: 800px;
+}
+.am-from{
+    padding: 20px;
+}
+label{
+    float: left;
+}

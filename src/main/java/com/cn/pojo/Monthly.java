@@ -9,7 +9,7 @@ public class Monthly {
 
     private Float one;
 
-    private Float two;
+    private Float feb;
 
     private Float three;
 
@@ -47,12 +47,12 @@ public class Monthly {
         this.one = one;
     }
 
-    public Float getTwo() {
-        return two;
+    public Float getFeb() {
+        return feb;
     }
 
-    public void setTwo(Float two) {
-        this.two = two;
+    public void setFeb(Float feb) {
+        this.feb = feb;
     }
 
     public Float getThree() {

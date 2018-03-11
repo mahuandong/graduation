@@ -31,12 +31,12 @@ public class MonthlyController {
 
     //添加
     @RequestMapping(value = { "monthlyInsert.json" }, method = { RequestMethod.POST })
-    public @ResponseBody int insert(Integer year,String areaCode,Float one,Float two,Float three,Float four){
+    public @ResponseBody int insert(Integer year,String areaCode,Float one,Float feb,Float three,Float four){
         Monthly parameter = new Monthly();
         parameter.setYear(year);
         parameter.setAreaCode(areaCode);
         parameter.setOne(one);
-        parameter.setTwo(two);
+        parameter.setFeb(feb);
         parameter.setThree(three);
         parameter.setFour(four);
         return this.monthlyService.insert(parameter);
@@ -44,21 +44,31 @@ public class MonthlyController {
     //全选
     @RequestMapping(value = { "monthlySelectAll.json" }, method = { RequestMethod.GET })
     public @ResponseBody List<Monthly> selectAll(){return this.monthlyService.selectAll();}
+    //根据地区选择
+    @RequestMapping(value = { "monthlySelectByArea.json" }, method = { RequestMethod.GET })
+    public @ResponseBody List<Monthly> selectByArea(String areaCode,Integer year){
+        Monthly parameter = new Monthly();
+        parameter.setYear(year);
+        parameter.setAreaCode(areaCode);
+        return this.monthlyService.selectByArea(parameter);
+    }
+
     //根据id选择
     @RequestMapping(value = { "monthlySelectById.json" }, method = { RequestMethod.GET })
-    public @ResponseBody Monthly selectByPrimaryKey(Integer id) { return this.monthlyService.selectByPrimaryKey(id); }
+    public @ResponseBody Monthly selectById(Integer id) { return this.monthlyService.selectById(id); }
+
     //根据年选择
     @RequestMapping(value = { "monthlySelectByYear.json" }, method = { RequestMethod.GET })
     public @ResponseBody Monthly selectByYear(Integer year) { return this.monthlyService.selectByYear(year); }
     //修改
     @RequestMapping(value = { "monthlyUpdate.json" }, method = { RequestMethod.POST })
     public @ResponseBody
-    Object updateByPrimaryKeySelective(Integer year,String areaCode,Float one,Float two,Float three,Float four){
+    Object updateByPrimaryKeySelective(Integer year,String areaCode,Float one,Float feb,Float three,Float four){
         Monthly parameter = new Monthly();
         parameter.setYear(year);
         parameter.setAreaCode(areaCode);
         parameter.setOne(one);
-        parameter.setTwo(two);
+        parameter.setFeb(feb);
         parameter.setThree(three);
         parameter.setFour(four);
         Map<String ,Object> result = this.monthlyService.updateByPrimaryKeySelective(parameter);

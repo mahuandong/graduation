@@ -24,6 +24,12 @@ public class UserController {
         return list;
     }
     //按name查询用户
+    @RequestMapping(value = { "userById.json" }, method = { RequestMethod.POST })
+    public @ResponseBody
+    User selectByPrimaryKey(Integer id) throws Exception {
+        return this.userService.selectByPrimaryKey(id);
+    }
+    //按name查询用户
     @RequestMapping(value = { "login.json" }, method = { RequestMethod.POST })
     public @ResponseBody
     User selectByName(String account, String password) throws Exception {
