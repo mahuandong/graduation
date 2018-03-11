@@ -56,8 +56,8 @@
                 }
             },
             "symbolSize": 4,
-            "symbol": "emptyCircle",
-            "smooth": true
+            "symbol": "circle",
+            "smooth": false
         },
         "radar": {
             "itemStyle": {
@@ -71,8 +71,8 @@
                 }
             },
             "symbolSize": 4,
-            "symbol": "emptyCircle",
-            "smooth": true
+            "symbol": "circle",
+            "smooth": false
         },
         "bar": {
             "itemStyle": {
@@ -195,8 +195,8 @@
                 }
             },
             "symbolSize": 4,
-            "symbol": "emptyCircle",
-            "smooth": true,
+            "symbol": "circle",
+            "smooth": false,
             "color": [
                 "#dd6b66",
                 "#759aa0",

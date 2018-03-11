@@ -73,8 +73,8 @@ function InsertElement() {
     years.splice(0,years.length);//清空数组
     nums.splice(0,nums.length);
 
-    for (var i = 0; i < echarsArea.length; i++) {
-        years.push(echarsArea[i].year);
+    for (var j = 0; j < echarsArea.length; j++) {
+        years.push(echarsArea[j].year);
     }
     //根据选择的指标选择放入数组的字段
     if(belongsVal == "gdp"){
@@ -94,31 +94,27 @@ function InsertElement() {
         for (var i = 0; i < echarsArea.length; i++) {
             nums.push(echarsArea[i].third);
         }
-    }if(belongsVal == "taxeveRnue"){
+    }if(belongsVal == "tax_revenue"){
         for (var i = 0; i < echarsArea.length; i++) {
-            nums.push(echarsArea[i].taxeveRnue);
+            nums.push(echarsArea[i].taxRevenue);
         }
-    }if(belongsVal == "disposableIncome") {
+    }if(belongsVal == "disposable_income") {
         for (var i = 0; i < echarsArea.length; i++) {
             nums.push(echarsArea[i].disposableIncome);
         }
-    }if(belongsVal == "gdpRate") {
+    }if(belongsVal == "gdp_rate") {
         for (var i = 0; i < echarsArea.length; i++) {
             nums.push(echarsArea[i].gdpRate);
         }
-    }if(belongsVal == "primaryRate") {
+    }if(belongsVal == "primary_rate") {
         for (var i = 0; i < echarsArea.length; i++) {
             nums.push(echarsArea[i].primaryRate);
         }
-    }if(belongsVal == "primaryRate") {
-        for (var i = 0; i < echarsArea.length; i++) {
-            nums.push(echarsArea[i].primaryRate);
-        }
-    }if(belongsVal == "secondRate") {
+    }if(belongsVal == "second_rate") {
         for (var i = 0; i < echarsArea.length; i++) {
             nums.push(echarsArea[i].secondRate);
         }
-    }if(belongsVal == "thirdRate") {
+    }if(belongsVal == "third_rate") {
         for (var i = 0; i < echarsArea.length; i++) {
             nums.push(echarsArea[i].thirdRate);
         }
@@ -176,7 +172,7 @@ function echart() {
 
 function login() {
     var username = getCookie("name");
-    if(username!=null){
+    if(username !== null & username !== undefined & username !== ""){
         window.location.href = "/graduation/jsp/user.jsp";
     }else{
         window.location.href = "/graduation/jsp/login.jsp";

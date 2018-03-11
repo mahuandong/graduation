@@ -39,7 +39,7 @@ function selectData() {
             var tmp = data;
             region = tmp;}
     });
-    for(var i = 2017; i > 2000; i--) {
+    for(var i = 2017; i > 2014; i--) {
         s = "<option value="+i+">"+i+"年"+"</option>"
         $("#date").append(s);
     }
