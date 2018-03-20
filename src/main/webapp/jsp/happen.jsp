@@ -164,7 +164,12 @@
                                 <!-- more data -->
                                 </tbody>
                             </table>
-
+                        </div>
+                        <div class="am-u-lg-12 am-cf">
+                            <div class="am-fr">
+                                <ul id="barcon" class="am-pagination tpl-pagination">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

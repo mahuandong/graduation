@@ -1,6 +1,6 @@
+var a = 1;
+var s = 1;
 $(function($){
-    var a=1 ;
-    var s=0 ;
     $.ajax({
         type: "GET",
         url: "../econSelectAll.json",
@@ -11,7 +11,41 @@ $(function($){
             a = tmp;}
     });
     console.log(a);//打印服务端返回的数据(调试用)
-    for(var i = 0; i < a.length; i++) {
+    var pno = 1;
+    goPage(pno);
+
+    var name = getCookie("name")
+    document.getElementById("welcomeName1").innerText = name;
+    document.getElementById("welcomeName2").innerText = name;
+});
+
+
+/**
+ * 分页函数
+ * pno--页数
+ * psize--每页显示记录数
+ * 分页部分是从真实数据行开始，因而存在加减某个常数，以确定真正的记录数
+ * 纯js分页实质是数据行全部加载，通过是否显示属性完成分页功能
+ **/
+function goPage(pno){
+    var num = a.length;//表格所有行数(所有记录数)
+    console.log(num);
+    var totalPage = 0;//总页数
+    var pageSize = 5;//每页显示行数
+    //总共分几页
+    if(num/pageSize > parseInt(num/pageSize)){
+        totalPage=parseInt(num/pageSize)+1;
+    }else{
+        totalPage=parseInt(num/pageSize);
+    }
+    var currentPage = pno;//当前页数
+    var startRow = (currentPage - 1) * pageSize;//开始显示的行  31
+    var endRow = currentPage * pageSize;//结束显示的行   40
+    endRow = (endRow > num)? num : endRow;    //40
+    console.log(endRow);
+    $("#economicList tbody").html("");//在遍历前清空表
+    //遍历显示数据实现分页
+    for(var i = startRow; i < endRow; i++) {
         if(a[i].areaCode === '110000'){
             s = "<tr><td>北京市</td>";
         }if(a[i].areaCode === '120000'){
@@ -78,7 +112,7 @@ $(function($){
             s = "<tr><td>台湾</td>";
         }if(a[i].areaCode === '810000'){
             s = "<tr><td>香港特别行政区</td>";
-         }if(a[i].areaCode === '820000'){
+        }if(a[i].areaCode === '820000'){
             s = "<tr><td>澳门特别行政区</td>";
         }
         s=s+"<td>"+a[i].year+"</td><td>"+a[i].gdp+"</td><td>"+a[i].primary+"</td><td>"+a[i].second+"</td><td>"+
@@ -90,11 +124,30 @@ $(function($){
             "</div></td></tr>"
         $("#economicList").append(s);
     }
-
-    var name = getCookie("name")
-    document.getElementById("welcomeName1").innerText = name;
-    document.getElementById("welcomeName2").innerText = name;
-});
+    $("#barcon li").remove();;//在遍历前清空
+    var tempStr = "<li>共"+totalPage+"页</li>" +
+        "<li><a href=\"#\" onclick='goPage(1)'>首页</a></li>";
+    if (currentPage !== 1){
+        tempStr += "<li><a href=\"#\" onclick='goPage(1)'>«</a></li>";
+    }
+    if (currentPage <= 3){
+        for(var pageIndex= 1;pageIndex<6;pageIndex++){
+            tempStr += "<li id="+pageIndex+"><a  href=\"#\"onclick=\" goPage("+pageIndex+")\">"+ pageIndex +"</a><li>";
+        }
+    }if (currentPage > 3 && currentPage < totalPage - 2 ){
+        for(var pageIndex= currentPage-2 ; pageIndex<currentPage+3;pageIndex++){
+            tempStr += "<li id="+pageIndex+"><a  href=\"#\"onclick=\" goPage("+pageIndex+")\">"+ pageIndex +"</a><li>";
+        }
+    }if (currentPage >= totalPage - 2){
+        for(var pageIndex= totalPage - 4 ; pageIndex<=totalPage;pageIndex++){
+            tempStr += "<li id="+pageIndex+"><a  href=\"#\"onclick=\" goPage("+pageIndex+")\">"+ pageIndex +"</a><li>";
+        }
+    }
+    tempStr += "<li><a href=\"#\" onclick='goPage(1)'>»</a></li>";
+    tempStr += "<li><a href=\"#\" onclick="+"goPage("+totalPage+")>尾页</a></li>";
+    document.getElementById("barcon").innerHTML = tempStr;
+    $("#"+pno).addClass("am-active");
+}
 
 //编辑按钮函数
 function edit(id) {
@@ -157,6 +210,7 @@ function del(id) {
         }
     })
 }
+
 function getCookie(name)
 {
     var name = name + "=";
@@ -168,3 +222,4 @@ function getCookie(name)
     }
     return "";
 }
+
