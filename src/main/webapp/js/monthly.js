@@ -208,6 +208,7 @@ function goPage(pno){
 
 function getCookie(name)
 {
+
     var name = name + "=";
     var ca = document.cookie.split(';');
     for(var i=0; i<ca.length; i++)
